@@ -65,6 +65,7 @@ function wds_documentation_dashboard() {
 	if ( $video_query->have_posts() ) {
 		$video_url = wp_get_attachment_url( $video_query->posts[0]->ID );
 	}
+	$video_url = apply_filters( 'wds_documentation_video_url', $video_url );
 
 	$pdf_query = new WP_Query( [
 		'name'                => 'wds-documentation-pdf',
@@ -76,29 +77,30 @@ function wds_documentation_dashboard() {
 	if ( $pdf_query->have_posts() ) {
 		$pdf_url = wp_get_attachment_url( $pdf_query->posts[0]->ID );
 	}
+	$pdf_url = apply_filters( 'wds_documentation_pdf_url', $pdf_url );
 
 ?>
-	<h1>Site Documentation</h1>
+	<h1><?php esc_html_e( 'Site Documentation', 'wds-site-documentation' ); ?></h1>
 
 	<p><a href="https://webdevstudios.com/"><img src="<?php echo esc_url( $img_url ); ?>" style="max-width:100%;height:auto;" alt="WebDevStudios"></a></p>
 
-	<h2>Video</h2>
+	<h2><?php esc_html_e( 'Video', 'wds-site-documentation' ); ?></h2>
 
 	<?php if ( $video_url ) : ?>
 		<p><video controls>
 		<source src="<?php echo esc_url( $video_url ); ?>">
-		Sorry, your browser doesn't support embedded videos.
+		<?php esc_html_e( 'Sorry, your browser doesn\'t support embedded videos.', 'wds-site-documentation' ); ?>
 		</video></p>
 	<?php else : ?>
-		<p>Video not found; upload a video to the media library with the slug <code>wds-documentation-video</code>.</p>
+		<p><?php esc_html_e( 'Video not found; upload a video to the media library with the slug', 'wds-site-documentation' ); ?> <code>wds-documentation-video</code>.</p>
 	<?php endif; ?>
 
-	<h2>Documentation</h2>
+	<h2><?php esc_html_e( 'Documentation', 'wds-site-documentation' ); ?></h2>
 
 	<?php if ( $pdf_url ) : ?>
-		<p><a href="<?php echo esc_url( $pdf_url ); ?>">View PDF documentation</a></p>
+		<p><a href="<?php echo esc_url( $pdf_url ); ?>"><?php esc_html_e( 'View PDF documentation', 'wds-site-documentation' ); ?></a></p>
 	<?php else : ?>
-		<p>PDF not found; upload a PDF to the media library with the slug <code>wds-documentation-pdf</code>.</p>
+		<p><?php esc_html_e( 'PDF not found; upload a PDF to the media library with the slug', 'wds-site-documentation' ); ?> <code>wds-documentation-pdf</code>.</p>
 	<?php endif; ?>
 
 <?php

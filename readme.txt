@@ -49,3 +49,14 @@ Absolutely. [Drop us a line!][wds-contact]
  
 = 1.0 =
 * Initial release
+
+== Filters for developers ==
+
+The URLs for the movie and PDF files can be modified with the `wds_documentation_video_url`
+and `wds_documentation_pdf_url` filters respectively. For example:
+
+```php
+add_filter( 'wds_documentation_pdf_url', function( $pdf_url ) {
+	return 'https://agency.site/docs/client.pdf';
+}, 10, 1 );
+```

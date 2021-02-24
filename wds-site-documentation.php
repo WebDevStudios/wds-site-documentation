@@ -33,13 +33,13 @@ use WP_Query;
  * @since  1.0.0
  */
 function add_wds_documentation_dashboard_page() {
-	add_menu_page(
+	add_submenu_page(
+		'options-general.php',
 		'Site Documentation',
 		'Documentation',
 		'manage_options',
 		'wds_documentation',
 		__NAMESPACE__ . '\wds_documentation_dashboard',
-		'dashicons-media-document',
 		100
 	);
 }
@@ -52,6 +52,37 @@ function add_wds_documentation_dashboard_page() {
  */
 function wds_documentation_dashboard() {
 	$img_url   = plugin_dir_url( __FILE__ ) . '/wds_banner.png';
+?>
+	<h1><?php esc_html_e( 'Site Documentation', 'wds-site-documentation' ); ?></h1>
+
+	<p><a href="https://webdevstudios.com/"><img src="<?php echo esc_url( $img_url ); ?>" style="max-width:100%;height:auto;" alt="WebDevStudios"></a></p>
+
+	<?php display_documentation(); ?>
+
+	<p>If you need help, we're here to support you! <a href="https://webdevstudios.com/contact/">Contact WDS</a></p>
+<?php
+}
+
+add_action( 'admin_menu', __NAMESPACE__ . '\add_wds_documentation_dashboard_page' );
+
+add_action( 'admin_bar_menu', __NAMESPACE__ . '\add_toolbar_items', 100 );
+function add_toolbar_items( $admin_bar ) {
+	$admin_bar->add_menu( [
+		'id'    => 'wds-documentation',
+		'title' => 'Site Documentation',
+		'href'  => '/wp-admin/admin.php?page=wds_documentation',
+		'meta'  => [
+			'title' => __( 'Documentation', 'wds-site-documentation' ),
+		],
+	] );
+}
+
+add_action( 'wp_dashboard_setup', __NAMESPACE__ . '\add_widget' );
+function add_widget() {
+	wp_add_dashboard_widget( 'wds_site_documentation', 'Site Documentation', __NAMESPACE__ . '\display_documentation' );
+}
+
+function display_documentation() {
 	$video_url = '';
 	$pdf_url   = '';
 
@@ -78,14 +109,7 @@ function wds_documentation_dashboard() {
 		$pdf_url = wp_get_attachment_url( $pdf_query->posts[0]->ID );
 	}
 	$pdf_url = apply_filters( 'wds_documentation_pdf_url', $pdf_url );
-
 ?>
-	<h1><?php esc_html_e( 'Site Documentation', 'wds-site-documentation' ); ?></h1>
-
-	<p><a href="https://webdevstudios.com/"><img src="<?php echo esc_url( $img_url ); ?>" style="max-width:100%;height:auto;" alt="WebDevStudios"></a></p>
-
-	<h2><?php esc_html_e( 'Video', 'wds-site-documentation' ); ?></h2>
-
 	<?php if ( $video_url ) : ?>
 		<p><video controls>
 		<source src="<?php echo esc_url( $video_url ); ?>">
@@ -95,15 +119,10 @@ function wds_documentation_dashboard() {
 		<p><?php esc_html_e( 'Video not found; upload a video to the media library with the slug', 'wds-site-documentation' ); ?> <code>wds-documentation-video</code>.</p>
 	<?php endif; ?>
 
-	<h2><?php esc_html_e( 'Documentation', 'wds-site-documentation' ); ?></h2>
-
 	<?php if ( $pdf_url ) : ?>
 		<p><a href="<?php echo esc_url( $pdf_url ); ?>"><?php esc_html_e( 'View PDF documentation', 'wds-site-documentation' ); ?></a></p>
 	<?php else : ?>
 		<p><?php esc_html_e( 'PDF not found; upload a PDF to the media library with the slug', 'wds-site-documentation' ); ?> <code>wds-documentation-pdf</code>.</p>
 	<?php endif; ?>
-
 <?php
 }
-
-add_action( 'admin_menu', __NAMESPACE__ . '\add_wds_documentation_dashboard_page' );

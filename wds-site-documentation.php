@@ -56,10 +56,10 @@ function wds_documentation_dashboard() {
 
 	if ( $enable_changes ) {
 		// Save attachment ID.
-		if ( isset( $_POST['submit_video_selector'] ) && isset( $_POST['wds_documentation_video_id'] ) ) :
-			// wp_die('<pre>'.print_r($_POST, true).'</pre>');
+		if ( isset( $_POST['submit_selectors'] ) ) {
 			update_option( 'wds_documentation_video_id', absint( $_POST['wds_documentation_video_id'] ) );
-		endif;
+			update_option( 'wds_documentation_pdf_id', absint( $_POST['wds_documentation_pdf_id'] ) );
+		}
 
 		wp_enqueue_media();
 	}
@@ -77,9 +77,12 @@ function wds_documentation_dashboard() {
 
 		<form method='post'>
 			<p>Current video: <span id="wds-video-name"><?php echo get_the_title( get_option( 'wds_documentation_video_id' ) ); ?></span></p>
-			<input id="upload_image_button" type="button" class="button" value="<?php _e( 'Select or upload video' ); ?>" />
-			<input type='hidden' name='wds_documentation_video_id' id='wds_documentation_video_id' value='<?php echo get_option( 'wds_documentation_video_id' ); ?>'>
-			<input type="submit" name="submit_video_selector" value="Save" class="button-primary">
+			<p><input id="upload_video_button" type="button" class="button" value="<?php _e( 'Select or upload video' ); ?>" />
+			<input type='hidden' name='wds_documentation_video_id' id='wds_documentation_video_id' value='<?php echo get_option( 'wds_documentation_video_id' ); ?>'></p>
+			<p>Current PDF: <span id="wds-pdf-name"><?php echo get_the_title( get_option( 'wds_documentation_pdf_id' ) ); ?></span></p>
+			<p><input id="upload_pdf_button" type="button" class="button" value="<?php _e( 'Select or upload PDF' ); ?>" />
+			<input type='hidden' name='wds_documentation_pdf_id' id='wds_documentation_pdf_id' value='<?php echo get_option( 'wds_documentation_pdf_id' ); ?>'></p>
+			<input type="submit" name="submit_selectors" value="Save" class="button-primary">
 		</form>
 	<?php endif; ?>
 
@@ -115,15 +118,9 @@ function display_documentation() {
 	}
 	$video_url = apply_filters( 'wds_documentation_video_url', $video_url );
 
-	$pdf_query = new WP_Query( [
-		'name'                => 'wds-documentation-pdf',
-		'post_type'           => [ 'attachment' ],
-		'nopaging'            => false,
-		'posts_per_page'      => '1',
-		'ignore_sticky_posts' => false,
-	] );
-	if ( $pdf_query->have_posts() ) {
-		$pdf_url = wp_get_attachment_url( $pdf_query->posts[0]->ID );
+	$pdf_id = get_option( 'wds_documentation_pdf_id' );
+	if ( $pdf_id ) {
+		$pdf_url = wp_get_attachment_url( $pdf_id );
 	}
 	$pdf_url = apply_filters( 'wds_documentation_pdf_url', $pdf_url );
 ?>
@@ -132,14 +129,10 @@ function display_documentation() {
 		<source src="<?php echo esc_url( $video_url ); ?>">
 		<?php esc_html_e( 'Sorry, your browser doesn\'t support embedded videos.', 'wds-site-documentation' ); ?>
 		</video></p>
-	<?php else : ?>
-		<p><?php esc_html_e( 'Video not found; upload a video to the media library with the slug', 'wds-site-documentation' ); ?> <code>wds-documentation-video</code>.</p>
 	<?php endif; ?>
 
 	<?php if ( $pdf_url ) : ?>
 		<p><a href="<?php echo esc_url( $pdf_url ); ?>"><?php esc_html_e( 'View PDF documentation', 'wds-site-documentation' ); ?></a></p>
-	<?php else : ?>
-		<p><?php esc_html_e( 'PDF not found; upload a PDF to the media library with the slug', 'wds-site-documentation' ); ?> <code>wds-documentation-pdf</code>.</p>
 	<?php endif; ?>
 <?php
 }
@@ -151,18 +144,20 @@ add_action( 'admin_footer', __NAMESPACE__ . '\media_selector_print_scripts' );
 
 function media_selector_print_scripts() {
 
-	$my_saved_attachment_post_id = get_option( 'wds_documentation_video_id', 0 );
+	$video_id = get_option( 'wds_documentation_video_id', 0 );
+	$pdf_id   = get_option( 'wds_documentation_pdf_id', 0 );
 
-	?><script type='text/javascript'>
+	?>
+	<script type='text/javascript'>
 
 		jQuery( document ).ready( function( $ ) {
 
 			// Uploading files
 			var file_frame;
 			var wp_media_post_id = wp.media.model.settings.post.id; // Store the old id
-			var set_to_post_id = <?php echo $my_saved_attachment_post_id; ?>; // Set this
+			var set_to_post_id = <?php echo esc_js( $video_id ); ?>; // Set this
 
-			jQuery('#upload_image_button').on('click', function( event ){
+			jQuery('#upload_video_button').on('click', function( event ){
 
 				event.preventDefault();
 
@@ -180,9 +175,12 @@ function media_selector_print_scripts() {
 
 				// Create the media frame.
 				file_frame = wp.media.frames.file_frame = wp.media({
-					title: 'Select a image to upload',
+					title: 'Select a video to upload',
 					button: {
-						text: 'Use this image',
+						text: 'Use this video',
+					},
+					library: {
+						type: 'video',
 					},
 					multiple: false	// Set to true to allow multiple files to be selected
 				});
@@ -210,6 +208,7 @@ function media_selector_print_scripts() {
 			});
 		});
 
-	</script><?php
+	</script>
+	<?php
 
 }

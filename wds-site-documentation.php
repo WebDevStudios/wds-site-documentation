@@ -162,17 +162,8 @@ function media_selector_print_scripts() {
 
 				event.preventDefault();
 
-				// If the media frame already exists, reopen it.
-				if ( file_frame ) {
-					// Set the post ID to what we want
-					file_frame.uploader.uploader.param( 'post_id', set_to_video_id );
-					// Open frame
-					file_frame.open();
-					return;
-				} else {
-					// Set the wp.media post id so the uploader grabs the ID we want when initialised
-					wp.media.model.settings.post.id = set_to_video_id;
-				}
+				// Set the wp.media post id so the uploader grabs the ID we want when initialised
+				wp.media.model.settings.post.id = set_to_video_id;
 
 				// Create the media frame.
 				file_frame = wp.media.frames.file_frame = wp.media({
@@ -207,17 +198,8 @@ function media_selector_print_scripts() {
 
 				event.preventDefault();
 
-				// If the media frame already exists, reopen it.
-				if ( file_frame ) {
-					// Set the post ID to what we want
-					file_frame.uploader.uploader.param( 'post_id', set_to_pdf_id );
-					// Open frame
-					file_frame.open();
-					return;
-				} else {
-					// Set the wp.media post id so the uploader grabs the ID we want when initialised
-					wp.media.model.settings.post.id = set_to_pdf_id;
-				}
+				// Set the wp.media post id so the uploader grabs the ID we want when initialised
+				wp.media.model.settings.post.id = set_to_pdf_id;
 
 				// Create the media frame.
 				file_frame = wp.media.frames.file_frame = wp.media({

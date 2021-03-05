@@ -84,6 +84,8 @@ function wds_documentation_dashboard() {
 			<input type='hidden' name='wds_documentation_pdf_id' id='wds_documentation_pdf_id' value='<?php echo get_option( 'wds_documentation_pdf_id' ); ?>'></p>
 			<input type="submit" name="submit_selectors" value="Save" class="button-primary">
 		</form>
+
+		<?php media_selector_print_scripts(); ?>
 	<?php endif; ?>
 
 <?php
@@ -139,8 +141,7 @@ function display_documentation() {
 
 // ////////////////////////////////////////.
 
-
-add_action( 'admin_footer', __NAMESPACE__ . '\media_selector_print_scripts' );
+// add_action( 'admin_footer', __NAMESPACE__ . '\media_selector_print_scripts' );
 
 function media_selector_print_scripts() {
 

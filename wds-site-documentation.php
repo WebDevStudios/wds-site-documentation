@@ -70,8 +70,6 @@ function wds_documentation_dashboard() {
 
 	<?php display_documentation(); ?>
 
-	<p>If you need help, we're here to support you! <a href="https://webdevstudios.com/contact/">Contact WDS</a></p>
-
 	<?php if ( $enable_changes ) : ?>
 		<h2>Administration</h2>
 
@@ -107,7 +105,18 @@ function add_toolbar_items( $admin_bar ) {
 
 add_action( 'wp_dashboard_setup', __NAMESPACE__ . '\add_widget' );
 function add_widget() {
-	wp_add_dashboard_widget( 'wds_site_documentation', 'Site Documentation', __NAMESPACE__ . '\display_documentation' );
+	wp_add_dashboard_widget( 'wds_site_documentation', 'Site Documentation', __NAMESPACE__ . '\wds_documentation_widget' );
+}
+
+function wds_documentation_widget() {
+	$img_url = plugin_dir_url( __FILE__ ) . '/wds_banner.png';
+?>
+
+<p><a href="https://webdevstudios.com/"><img src="<?php echo esc_url( $img_url ); ?>" style="max-width:100%;height:auto;" alt="WebDevStudios"></a></p>
+
+<?php display_documentation(); ?>
+
+<?php
 }
 
 function display_documentation() {
@@ -136,12 +145,10 @@ function display_documentation() {
 	<?php if ( $pdf_url ) : ?>
 		<p><a href="<?php echo esc_url( $pdf_url ); ?>"><?php esc_html_e( 'View PDF documentation', 'wds-site-documentation' ); ?></a></p>
 	<?php endif; ?>
+
+	<p>If you need help, we're here to support you! <a href="https://webdevstudios.com/contact/">Contact WDS</a></p>
 <?php
 }
-
-// ////////////////////////////////////////.
-
-// add_action( 'admin_footer', __NAMESPACE__ . '\media_selector_print_scripts' );
 
 function media_selector_print_scripts() {
 

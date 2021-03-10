@@ -91,7 +91,14 @@ function wds_documentation_dashboard() {
 
 add_action( 'admin_menu', __NAMESPACE__ . '\add_wds_documentation_dashboard_page' );
 
-add_action( 'admin_bar_menu', __NAMESPACE__ . '\add_toolbar_items', 100 );
+/**
+ * Add a Site Documentation item to the Admin Bar
+ *
+ * @author Evan Hildreth <evan.hildreth@webdevstudios.com>
+ * @since  1.0.0
+ *
+ * @param Object $admin_bar Admin bar object from WordPress.
+ */
 function add_toolbar_items( $admin_bar ) {
 	$admin_bar->add_menu( [
 		'id'    => 'wds-documentation',
@@ -102,12 +109,25 @@ function add_toolbar_items( $admin_bar ) {
 		],
 	] );
 }
+add_action( 'admin_bar_menu', __NAMESPACE__ . '\add_toolbar_items', 100 );
 
-add_action( 'wp_dashboard_setup', __NAMESPACE__ . '\add_widget' );
+/**
+ * Register the dashboard widget with WordPress.
+ *
+ * @author Evan Hildreth <evan.hildreth@webdevstudios.com>
+ * @since  1.0.0
+ */
 function add_widget() {
 	wp_add_dashboard_widget( 'wds_site_documentation', 'Site Documentation', __NAMESPACE__ . '\wds_documentation_widget' );
 }
+add_action( 'wp_dashboard_setup', __NAMESPACE__ . '\add_widget' );
 
+/**
+ * Display the widget on the WordPress dashboard.
+ *
+ * @author Evan Hildreth <evan.hildreth@webdevstudios.com>
+ * @since  1.0.0
+ */
 function wds_documentation_widget() {
 	$img_url = plugin_dir_url( __FILE__ ) . '/wds_banner.png';
 ?>
@@ -119,6 +139,15 @@ function wds_documentation_widget() {
 <?php
 }
 
+/**
+ * Display the documentation information.
+ *
+ * Filter the video URL with `wds_documentation_video_url`
+ * Filter the PDF URL with `wds_documentation_pdf_url`
+ *
+ * @author Evan Hildreth <evan.hildreth@webdevstudios.com>
+ * @since  1.0.0
+ */
 function display_documentation() {
 	$video_url = '';
 	$pdf_url   = '';
@@ -150,6 +179,12 @@ function display_documentation() {
 <?php
 }
 
+/**
+ * Output JavaScript needed to display the media selector boxes.
+ *
+ * @author Evan Hildreth <evan.hildreth@webdevstudios.com>
+ * @since  1.0.0
+ */
 function media_selector_print_scripts() {
 
 	$video_id = get_option( 'wds_documentation_video_id', 0 );

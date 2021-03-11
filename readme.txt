@@ -22,9 +22,9 @@ Brought to you by the fine folks at [WebDevStudios][wds]!
 == Installation ==
  
 1. Upload the plugin to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Upload a video to the WordPress media library and give it the slug `wds-documentation-video`.
-1. Upload a PDF to the WordPress media library and give it the slug `wds-documentation-pdf`.
+2. Activate the plugin through the 'Plugins' menu in WordPress
+3. Click the "Site Documentation" button in the Admin Bar or under "Settings" to view the documentation page.
+4. Upload a Video and PDF using the buttons there. These will show up on the page and on the WordPress dashboard.
  
 == Frequently Asked Questions ==
  
@@ -33,6 +33,10 @@ Brought to you by the fine folks at [WebDevStudios][wds]!
 When an agency hands a site off to the client, they should also provide documentation on how to use the
 site, even if the site is mostly "vanilla WordPress." This plugin makes it easy to set up a
 documentation section in the WordPress dashboard.
+
+= Can I turn off the buttons so the documentation can't be changed accidentally? =
+
+Absolutely! See the "Filters for developers" section.
  
 = Can you build my site? =
  
@@ -42,8 +46,8 @@ Absolutely. [Drop us a line!][wds-contact]
  
 == Screenshots ==
  
-1. This is the documentation page as it is shown in the WordPress dashboard.
-2. This shows how to set the slug for an item in the media library.
+1. This shows the documentation widget on the main dashboard.
+2. This shows the documentation page including the select/upload buttons.
  
 == Changelog ==
  
@@ -59,4 +63,11 @@ and `wds_documentation_pdf_url` filters respectively. For example:
 add_filter( 'wds_documentation_pdf_url', function( $pdf_url ) {
 	return 'https://agency.site/docs/client.pdf';
 }, 10, 1 );
+```
+
+The upload buttons can be turned off with the filter `wds_documentation_enable_changes`. To
+turn off the buttons, add this code to your theme's `functions.php` file:
+
+```php
+add_filter( 'wds_documentation_enable_changes', '__return_false', 10 );
 ```

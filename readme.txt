@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== WDS Site Documentation ===
 Contributors: webdevstudios, oddevan
 Tags: documentation
 Requires at least: 5.6

@@ -74,12 +74,12 @@ function wds_documentation_dashboard() {
 		<h2>Administration</h2>
 
 		<form method='post'>
-			<p>Current video: <span id="wds-video-name"><?php echo get_the_title( get_option( 'wds_documentation_video_id' ) ); ?></span></p>
-			<p><input id="upload_video_button" type="button" class="button" value="<?php _e( 'Select or upload video' ); ?>" />
-			<input type='hidden' name='wds_documentation_video_id' id='wds_documentation_video_id' value='<?php echo get_option( 'wds_documentation_video_id' ); ?>'></p>
-			<p>Current PDF: <span id="wds-pdf-name"><?php echo get_the_title( get_option( 'wds_documentation_pdf_id' ) ); ?></span></p>
-			<p><input id="upload_pdf_button" type="button" class="button" value="<?php _e( 'Select or upload PDF' ); ?>" />
-			<input type='hidden' name='wds_documentation_pdf_id' id='wds_documentation_pdf_id' value='<?php echo get_option( 'wds_documentation_pdf_id' ); ?>'></p>
+			<p>Current video: <span id="wds-video-name"><?php echo esc_html( get_the_title( get_option( 'wds_documentation_video_id' ) ) ); ?></span></p>
+			<p><input id="upload_video_button" type="button" class="button" value="<?php esc_html_e( 'Select or upload video', 'wds-site-documentation' ); ?>" />
+			<input type='hidden' name='wds_documentation_video_id' id='wds_documentation_video_id' value='<?php echo esc_attr( get_option( 'wds_documentation_video_id' ) ); ?>'></p>
+			<p>Current PDF: <span id="wds-pdf-name"><?php echo esc_html( get_the_title( get_option( 'wds_documentation_pdf_id' ) ) ); ?></span></p>
+			<p><input id="upload_pdf_button" type="button" class="button" value="<?php esc_html_e( 'Select or upload PDF', 'wds-site-documentation' ); ?>" />
+			<input type='hidden' name='wds_documentation_pdf_id' id='wds_documentation_pdf_id' value='<?php echo esc_attr( get_option( 'wds_documentation_pdf_id' ) ); ?>'></p>
 			<input type="submit" name="submit_selectors" value="Save" class="button-primary">
 		</form>
 

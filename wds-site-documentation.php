@@ -65,7 +65,7 @@ function wds_documentation_dashboard() {
 		wp_enqueue_media();
 	}
 ?>
-	<h1><?php esc_html_e( 'Site Documentation', 'wds-site-documentation' ); ?></h1>
+	<h1><?php esc_html_e( 'Everything You Need to Know About Your WordPress Website', 'wds-site-documentation' ); ?></h1>
 
 	<p><a href="https://webdevstudios.com/"><img src="<?php echo esc_url( $img_url ); ?>" style="max-width:100%;height:auto;" alt="WebDevStudios"></a></p>
 
@@ -122,7 +122,7 @@ add_action( 'admin_bar_menu', __NAMESPACE__ . '\add_toolbar_items', 100 );
  * @since  1.0.0
  */
 function add_widget() {
-	wp_add_dashboard_widget( 'wds_site_documentation', 'Site Documentation', __NAMESPACE__ . '\wds_documentation_widget' );
+	wp_add_dashboard_widget( 'wds_site_documentation', 'Everything You Need to Know About Your WordPress Website', __NAMESPACE__ . '\wds_documentation_widget' );
 }
 add_action( 'wp_dashboard_setup', __NAMESPACE__ . '\add_widget' );
 
@@ -135,8 +135,6 @@ add_action( 'wp_dashboard_setup', __NAMESPACE__ . '\add_widget' );
 function wds_documentation_widget() {
 	$img_url = plugin_dir_url( __FILE__ ) . '/wds_banner.png';
 ?>
-
-<p><a href="https://webdevstudios.com/"><img src="<?php echo esc_url( $img_url ); ?>" style="max-width:100%;height:auto;" alt="WebDevStudios"></a></p>
 
 <?php display_documentation(); ?>
 
@@ -169,17 +167,32 @@ function display_documentation() {
 	$pdf_url = apply_filters( 'wds_documentation_pdf_url', $pdf_url );
 ?>
 	<?php if ( $video_url ) : ?>
-		<p><video controls>
-		<source src="<?php echo esc_url( $video_url ); ?>">
-		<?php esc_html_e( 'Sorry, your browser doesn\'t support embedded videos.', 'wds-site-documentation' ); ?>
-		</video></p>
+		<p>
+			<?php esc_html_e( 'Watch a video tutorial of how your website works:', 'wds-site-documentation' ); ?><br>
+			<video controls>
+				<source src="<?php echo esc_url( $video_url ); ?>">
+				<a href="<?php echo esc_url( $video_url ); ?>"><?php esc_html_e( 'View video tutorial', 'wds-site-documentation' ); ?></a>
+			</video>
+		</p>
 	<?php endif; ?>
 
 	<?php if ( $pdf_url ) : ?>
-		<p><a href="<?php echo esc_url( $pdf_url ); ?>"><?php esc_html_e( 'View PDF documentation', 'wds-site-documentation' ); ?></a></p>
+		<p>
+			<?php
+				echo sprintf(
+					wp_kses(
+						// translators: placeholder is link to PDF documentation.
+						__( 'Prefer to read? Take a look at this <a href="%s">document</a> that guides you through your website.', 'wds-site-documentation' ),
+						[ 'a' => [ 'href' => [] ] ]
+					),
+					esc_url( $pdf_url )
+				);
+			?>
+		</p>
 	<?php endif; ?>
 
-	<p>If you need help, we're here to support you! <a href="https://webdevstudios.com/contact/">Contact WDS</a></p>
+	<p>If you need assistance, would like to add more functionality to your site, or require a new redesign, please contact WebDevStudios.</p>
+	<p><a href="https://webdevstudios.com/contact/" class="button button-primary" style="background-color: #f3713c; border-color: #f3713c">Contact WebDevStudios Now</a></p>
 <?php
 }
 

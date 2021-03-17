@@ -51,7 +51,10 @@ function add_wds_documentation_dashboard_page() {
  * @since  1.0.0
  */
 function wds_documentation_dashboard() {
-	$img_url        = plugin_dir_url( __FILE__ ) . '/wds_banner.png';
+	$img_url        = apply_filters(
+		'wds_documentation_banner_url',
+		plugin_dir_url( __FILE__ ) . '/wds_banner.png'
+	);
 	$enable_changes = apply_filters( 'wds_documentation_enable_changes', true );
 
 	if ( $enable_changes ) {
@@ -153,6 +156,7 @@ function wds_documentation_widget() {
 function display_documentation() {
 	$video_url = '';
 	$pdf_url   = '';
+	$footer    = '';
 
 	$video_id = get_option( 'wds_documentation_video_id' );
 	if ( $video_id ) {
@@ -165,6 +169,12 @@ function display_documentation() {
 		$pdf_url = wp_get_attachment_url( $pdf_id );
 	}
 	$pdf_url = apply_filters( 'wds_documentation_pdf_url', $pdf_url );
+
+	$footer = apply_filters(
+		'wds_documentation_footer',
+		'<p>If you need assistance, would like to add more functionality to your site, or require a new redesign, please contact WebDevStudios.</p>
+		<p><a href="https://webdevstudios.com/contact/" class="button button-primary" style="background-color: #f3713c; border-color: #f3713c">Contact WebDevStudios Now</a></p>'
+	);
 ?>
 	<?php if ( $video_url ) : ?>
 		<p>
@@ -194,8 +204,7 @@ function display_documentation() {
 		</p>
 	<?php endif; ?>
 
-	<p>If you need assistance, would like to add more functionality to your site, or require a new redesign, please contact WebDevStudios.</p>
-	<p><a href="https://webdevstudios.com/contact/" class="button button-primary" style="background-color: #f3713c; border-color: #f3713c">Contact WebDevStudios Now</a></p>
+	<?php echo wp_kses_post( $footer ); ?>
 <?php
 }
 

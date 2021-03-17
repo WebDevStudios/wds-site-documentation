@@ -71,3 +71,19 @@ turn off the buttons, add this code to your theme's `functions.php` file:
 ```php
 add_filter( 'wds_documentation_enable_changes', '__return_false', 10 );
 ```
+
+The banner image can be modified with `wds_documentation_banner_url`:
+
+```php
+add_filter( 'wds_documentation_banner_url', function( $banner_url ) {
+	return 'https://agency.site/docs/agency.png';
+}, 10, 1 );
+```
+
+The footer text can be customized with `wds_documentation_footer`:
+
+```php
+add_filter( 'wds_documentation_footer', function( $footer ) {
+	return '<a href="mailto:person@agency.site">Contact us!</a>';
+}, 10, 1 );
+```

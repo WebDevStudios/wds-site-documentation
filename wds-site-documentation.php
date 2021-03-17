@@ -179,13 +179,16 @@ function display_documentation() {
 	<?php if ( $pdf_url ) : ?>
 		<p>
 			<?php
-				echo sprintf(
-					wp_kses(
-						// translators: placeholder is link to PDF documentation.
-						__( 'Prefer to read? Take a look at this <a href="%s">document</a> that guides you through your website.', 'wds-site-documentation' ),
-						[ 'a' => [ 'href' => [] ] ]
-					),
-					esc_url( $pdf_url )
+				echo wp_kses_post(
+					sprintf(
+						// translators: placeholder is link to PDF document.
+						__( 'Prefer to read? Take a look at this %1$s that guides you through your website.', 'wds-site-documentation' ),
+						sprintf(
+							'<a href="%1$s">%2$s</a>',
+							esc_url( $pdf_url ),
+							__( 'document', 'wds-site-documentation' )
+						)
+					)
 				);
 			?>
 		</p>

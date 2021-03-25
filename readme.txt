@@ -37,6 +37,10 @@ documentation section in the WordPress dashboard.
 = Can I turn off the buttons so the documentation can't be changed accidentally? =
 
 Absolutely! See the "Filters for developers" section.
+
+= Can I change the banner and footer on the page/widget? =
+
+Yes, you can! See the "Filters for developers" section.
  
 = Can you build my site? =
  

@@ -63,7 +63,7 @@ Absolutely. [Drop us a line!][wds-contact]
 The URLs for the movie and PDF files can be modified with the `wds_documentation_video_url`
 and `wds_documentation_pdf_url` filters respectively. For example:
 
-```php
+```
 add_filter( 'wds_documentation_pdf_url', function( $pdf_url ) {
 	return 'https://agency.site/docs/client.pdf';
 }, 10, 1 );
@@ -72,13 +72,13 @@ add_filter( 'wds_documentation_pdf_url', function( $pdf_url ) {
 The upload buttons can be turned off with the filter `wds_documentation_enable_changes`. To
 turn off the buttons, add this code to your theme's `functions.php` file:
 
-```php
+```
 add_filter( 'wds_documentation_enable_changes', '__return_false', 10 );
 ```
 
 The banner image can be modified with `wds_documentation_banner_url`:
 
-```php
+```
 add_filter( 'wds_documentation_banner_url', function( $banner_url ) {
 	return 'https://agency.site/docs/agency.png';
 }, 10, 1 );
@@ -86,7 +86,7 @@ add_filter( 'wds_documentation_banner_url', function( $banner_url ) {
 
 The footer text can be customized with `wds_documentation_footer`:
 
-```php
+```
 add_filter( 'wds_documentation_footer', function( $footer ) {
 	return '<a href="mailto:person@agency.site">Contact us!</a>';
 }, 10, 1 );

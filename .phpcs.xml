@@ -1,64 +1,258 @@
 <?xml version="1.0"?>
-<ruleset name="WordPress Coding Standards">
-	<description>Apply WordPress Coding Standards</description>
+<ruleset name="WebDevStudios Project Plugin Standards">
+	<description>Apply WebDevStudios Project Plugin Standards</description>
 
 	<!-- Set the memory limit to 256M.
 		 For most standard PHP configurations, this means the memory limit will temporarily be raised.
 		 Ref: https://github.com/squizlabs/PHP_CodeSniffer/wiki/Advanced-Usage#specifying-phpini-settings
 	-->
-	<ini name="memory_limit" value="256M"/>
+	<ini name="memory_limit" value="256M" />
 
-	<description>The ruleset for the WDS site documentation plugin</description>
+	<!-- Whenever possible, cache the scan results and re-use those for unchanged files on the next scan -->
+	<arg name="cache" />
 
-	<!-- Only check the PHP files. -->
-	<arg name="extensions" value="php" />
+	<!-- Strip the filepaths down to the relevant bit -->
+	<arg name="basepath" value="./" />
 
-	<!-- Report warnings, but don't block commits -->
-	<config name="ignore_warnings_on_exit" value="1"/>
+	<!-- Check up to 20 files simultaneously -->
+	<arg name="parallel" value="20" />
 
-	<!-- Exclude the Composer Vendor directory. -->
-	<exclude-pattern>/vendor/*</exclude-pattern>
+	<!-- Show sniff codes in all reports -->
+	<arg value="ps" />
 
-	<!-- Exclude the lib Vendors directory. -->
-	<exclude-pattern>/lib/vendors/*</exclude-pattern>
+	<rule ref="WordPress-Core">
+		<exclude name="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned" />
 
-	<!-- Exclude the Node Modules directory. -->
-	<exclude-pattern>/node_modules/*</exclude-pattern>
+		<!-- Allow trigger_error, useful in logging -->
+		<exclude name="WordPress.PHP.DevelopmentFunctions.error_log_trigger_error" />
 
-	<!-- Exclude PHPCS directory. -->
-	<exclude-pattern>/phpcs/*</exclude-pattern>
-
-	<!-- Exclude WPCS directory. -->
-	<exclude-pattern>/wpcs/*</exclude-pattern>
-
-	<config name="minimum_supported_wp_version" value="5.2.14"/>
-
-	<!-- WordPress-Core, WordPress-Docs & WordPress-Extra coding standards -->
-	<rule ref="WordPress">
-		<!-- Allow array short syntax. -->
-		<exclude name="Generic.Arrays.DisallowShortArraySyntax" />
+		<!-- Allow ternaries -->
+		<exclude name="WordPress.PHP.DisallowShortTernary" />
 	</rule>
 
-	<!-- Check used textdomain for project -->
+	<!-- Prefer alignment over line length -->
+	<rule ref="WordPress.Arrays.MultipleStatementAlignment">
+		<properties>
+			<property name="maxColumn" value="1000" />
+		</properties>
+	</rule>
+
+	<rule ref="WordPress">
+
+		<!-- Allow [] -->
+		<exclude name="Generic.Arrays.DisallowShortArraySyntax.Found" />
+	</rule>
+
+	<rule ref="WordPress-Docs">
+
+		<!-- Don't require the @package tag, very useless -->
+		<exclude name="Squiz.Commenting.FileComment.MissingPackageTag" />
+
+		<!-- You don't need to end comment with period or punctuation if you don't want to -->
+		<exclude name="Squiz.Commenting.FunctionComment.ParamCommentFullStop" />
+		<exclude name="Squiz.Commenting.FunctionComment.ThrowsNoFullStop" />
+	</rule>
+
+	<rule ref="WordPress-Extra">
+
+		<!-- Forget about how WP core wants file names to look. -->
+		<exclude name="WordPress.Files.FileName"/>
+
+		<!-- Allow array short syntax [Extra] -->
+		<exclude name="Generic.Arrays.DisallowShortArraySyntax" />
+
+		<!-- Allow short prefixes -->
+		<exclude name="WordPress.NamingConventions.PrefixAllGlobals.ShortPrefixPassed" />
+
+		<!-- Don't worry about files that don't contain any code -->
+		<rule ref="Internal.NoCodeFound">
+			<severity>0</severity>
+		</rule>
+
+		<!-- Don't require punctuation after inline comments -->
+		<exclude name="Squiz.Commenting.InlineComment.InvalidEndChar" />
+
+		<!-- Comment punctuation doesn't matter -->
+		<exclude name="Squiz.Commenting.FunctionComment.ParamCommentFullStop" />
+		<exclude name="Squiz.Commenting.FunctionComment.ThrowsNoFullStop" />
+
+		<!-- Allow empty catch statements -->
+		<exclude name="Generic.CodeAnalysis.EmptyStatement.DetectedCatch" />
+
+		<!-- Allow WP global modification -->
+		<exclude name="WordPress.WP.GlobalVariablesOverride.Prohibited" />
+
+		<!-- The nonce sniff almost never works right; just warn -->
+		<rule ref="WordPress.Security.NonceVerification.Missing">
+			<type>warning</type>
+		</rule>
+	</rule>
+
+	<!-- Make missing translator comment (not really useful) -->
+	<rule ref="WordPress.WP.I18n.MissingTranslatorsComment">
+		<severity>0</severity>
+	</rule>
+
+	<!-- Sometimes we need to override globals -->
+	<rule ref="WordPress.WP.GlobalVariablesOverride.OverrideProhibited">
+		<type>warning</type>
+	</rule>
+
+	<!-- The minimum supported WordPress version. This should match what's listed in style.css -->
+	<rule ref="WordPress.WP.DeprecatedFunctions">
+		<properties>
+			<property name="minimum_supported_version" value="5.2.14" />
+		</properties>
+	</rule>
+
+	<!-- Verify that the text_domain is set to the desired text-domain.
+		 Multiple valid text domains can be provided as a comma-delimited list -->
 	<rule ref="WordPress.WP.I18n">
 		<properties>
-			<property name="text_domain" type="array">
-				<element value="wds-site-documentation"/>
+			<property name="text_domain" type="array" value="wds-site-documentation" />
+		</properties>
+	</rule>
+
+	<!-- Disallow long array syntax -->
+	<rule ref="Generic.Arrays.DisallowLongArraySyntax" />
+
+	<!-- Namespacing required for classes -->
+	<rule ref="PSR1.Classes.ClassDeclaration" />
+
+	<!-- Namespacing required for functions -->
+	<rule ref="PSR2.Namespaces.NamespaceDeclaration" />
+
+	<!--
+	Allow the use of for methods that inherit the parents
+	documentation.
+
+	/**
+	 * {@inheritDoc}
+	 */
+
+	See: https://github.com/squizlabs/PHP_CodeSniffer/wiki/Customisable-Sniff-Properties#squiz-sniffs
+	-->
+	<rule ref="Squiz.Commenting.FunctionComment">
+		<properties>
+			<property name="skipIfInheritdoc" value="true" />
+		</properties>
+	</rule>
+
+	<!-- Allow multiple variable assignments, but only outside of conditionals -->
+	<rule ref="Squiz.PHP.DisallowMultipleAssignments">
+		<exclude name="Squiz.PHP.DisallowMultipleAssignments.Found" />
+	</rule>
+
+	<!-- Disallow functions where WordPress has an alternative -->
+	<rule ref="WordPress.WP.AlternativeFunctions">
+		<!-- ...but, allow these: -->
+		<properties>
+			<property name="exclude" type="array">
+				<element value="file_get_contents" />
 			</property>
 		</properties>
 	</rule>
 
-	<!-- Verify that everything in the global namespace is prefixed with a theme specific prefix.
-		 Multiple valid prefixes can be provided as a comma-delimited list. -->
-	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+	<!-- Disallow eval() -->
+	<rule ref="Squiz.PHP.Eval"/>
+	<rule ref="Squiz.PHP.Eval.Discouraged">
+		<type>error</type>
+		<message>eval() is a security risk and is not allowed.</message>
+	</rule>
+
+	<!-- Disallow querying more than 100 posts at once. -->
+	<rule ref="WordPress.WP.PostsPerPage" />
+	<rule ref="WordPress.WP.PostsPerPage.posts_per_page_numberposts">
+		<type>warning</type>
+	</rule>
+	<rule ref="WordPress.WP.PostsPerPage.posts_per_page_posts_per_page">
+		<type>warning</type>
+	</rule>
+
+	<!-- Disallow short PHP tags. (From WordPress-Core) -->
+	<rule ref="Generic.PHP.DisallowShortOpenTag">
+		<!-- But, allow short echo, which is now standard. -->
+		<exclude name="Generic.PHP.DisallowShortOpenTag.EchoFound" />
+	</rule>
+
+	<!-- Disallow old-style PHP tags -->
+	<rule ref="Generic.PHP.DisallowAlternativePHPTags" />
+
+	<!-- Require prepared SQL statements. -->
+	<rule ref="WordPress.DB.PreparedSQL" />
+	<rule ref="WordPress.DB.PreparedSQLPlaceholders" />
+
+	<!-- Disallow "development" functions like var_dump/print_r/phpinfo -->
+	<rule ref="WordPress.PHP.DevelopmentFunctions">
+
+		<!-- Allow triggering errors for reporting purposes. -->
+		<exclude name="WordPress.PHP.DevelopmentFunctions.error_log_error_log" />
+		<exclude name="WordPress.PHP.DevelopmentFunctions.error_log_trigger_error" />
+
+		<!-- Set remaining to errors. -->
+		<type>error</type>
+	</rule>
+
+	<!-- Disallow parts of WP which have been deprecated. -->
+	<rule ref="WordPress.WP.DeprecatedFunctions" />
+	<rule ref="WordPress.WP.DeprecatedClasses" />
+	<rule ref="WordPress.WP.DeprecatedParameters" />
+	<rule ref="WordPress.WP.DeprecatedParameterValues" />
+
+	<!-- Disallow parts of WP which have better alternatives. -->
+	<rule ref="WordPress.WP.DiscouragedConstants" />
+	<rule ref="WordPress.WP.DiscouragedFunctions">
 		<properties>
-			<property name="prefixes" type="array" value="wds,wds_docs,WebDevStudios" />
+			<property name="exclude" type="array">
+
+				<!--
+					wp_reset_query() does a different thing to
+					wp_reset_postdata() and should not be discouraged.
+				-->
+				<element value="wp_reset_query" />
+			</property>
 		</properties>
 	</rule>
 
-	<!-- WordPress Core currently supports PHP 5.6+. -->
-	<config name="testVersion" value="7.2-"/>
+	<rule ref="Generic.PHP.Syntax" />
 
-	<!-- Only sniff the plugin. -->
+	<!-- Encourage having only one class/interface/trait per file. -->
+	<rule ref="Generic.Files.OneObjectStructurePerFile">
+		<type>error</type>
+	</rule>
+
+	<!-- Don't show the above error and this duplicate one -->
+	<rule ref="PSR1.Classes.ClassDeclaration.MultipleClasses">
+		<severity>0</severity>
+	</rule>
+
+	<!-- Sets the minimum supported WP version to the last version with the latest patch. -->
+	<config name="minimum_supported_wp_version" value="5.2.14" />
+
+	<!-- Use WordPress PHP Compatibility -->
+	<rule ref="PHPCompatibilityWP" />
+
+	<!-- WordPress Core currently supports PHP 7.4+ -->
+	<config name="testVersion" value="7.4-" />
+
+	<!-- Only sniff PHP files -->
+	<arg name="extensions" value="php" />
+
+	<!-- Only sniff the plugin -->
 	<file>./</file>
+
+	<!-- Don't sniff the following directories or file types -->
+	<exclude-pattern>/build/*</exclude-pattern>
+	<exclude-pattern>/dist/*</exclude-pattern>
+	<exclude-pattern>/cache/*</exclude-pattern>
+	<exclude-pattern>/log/*</exclude-pattern>
+	<exclude-pattern>/node_modules/*</exclude-pattern>
+	<exclude-pattern>/vendor/*</exclude-pattern>
+
+	<!-- Exclude files that shouldn't get linted (for older packages that won't respect extensions) -->
+	<exclude-pattern>*.js</exclude-pattern>
+	<exclude-pattern>*.jsx</exclude-pattern>
+	<exclude-pattern>*.ts</exclude-pattern>
+	<exclude-pattern>*.css</exclude-pattern>
+	<exclude-pattern>*.scss</exclude-pattern>
 </ruleset>

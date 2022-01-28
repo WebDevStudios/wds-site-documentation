@@ -12,7 +12,7 @@
  * Plugin Name:       WDS Site Documentation
  * Plugin URI:        https://github.com/webdevstudios/wds-site-documentation
  * Description:       A plugin to host site documentation in an easily accessible place in the WordPress dashboard.
- * Version:           1.0.0
+ * Version:           1.1.0-dev
  * Requires at least: 5.2
  * Requires PHP:      7.2
  * Author:            WebDevStudios
@@ -61,13 +61,13 @@ function wds_documentation_dashboard() {
 		// Save attachment ID.
 		if ( isset( $_POST['submit_selectors'] ) ) {
 			check_admin_referer( 'wds_documentation_update', 'wds_documentation_update_nonce' );
-			update_option( 'wds_documentation_video_id', absint( $_POST['wds_documentation_video_id'] ) );
-			update_option( 'wds_documentation_pdf_id', absint( $_POST['wds_documentation_pdf_id'] ) );
+			update_option( 'wds_documentation_video_id', absint( $_POST['wds_documentation_video_id'] ?? 0 ) );
+			update_option( 'wds_documentation_pdf_id', absint( $_POST['wds_documentation_pdf_id'] ?? 0 ) );
 		}
 
 		wp_enqueue_media();
 	}
-?>
+	?>
 	<h1><?php esc_html_e( 'Everything You Need to Know About Your WordPress Website', 'wds-site-documentation' ); ?></h1>
 
 	<p><a href="https://webdevstudios.com/"><img src="<?php echo esc_url( $img_url ); ?>" style="max-width:100%;height:auto;" alt="WebDevStudios"></a></p>
@@ -93,7 +93,7 @@ function wds_documentation_dashboard() {
 		<?php media_selector_print_scripts(); ?>
 	<?php endif; ?>
 
-<?php
+	<?php
 }
 
 add_action( 'admin_menu', __NAMESPACE__ . '\add_wds_documentation_dashboard_page' );
@@ -107,14 +107,16 @@ add_action( 'admin_menu', __NAMESPACE__ . '\add_wds_documentation_dashboard_page
  * @param Object $admin_bar Admin bar object from WordPress.
  */
 function add_toolbar_items( $admin_bar ) {
-	$admin_bar->add_menu( [
-		'id'    => 'wds-documentation',
-		'title' => 'Site Documentation',
-		'href'  => '/wp-admin/admin.php?page=wds_documentation',
-		'meta'  => [
-			'title' => __( 'Documentation', 'wds-site-documentation' ),
-		],
-	] );
+	$admin_bar->add_menu(
+		[
+			'id'    => 'wds-documentation',
+			'title' => 'Site Documentation',
+			'href'  => '/wp-admin/admin.php?page=wds_documentation',
+			'meta'  => [
+				'title' => __( 'Documentation', 'wds-site-documentation' ),
+			],
+		]
+	);
 }
 add_action( 'admin_bar_menu', __NAMESPACE__ . '\add_toolbar_items', 100 );
 
@@ -137,11 +139,11 @@ add_action( 'wp_dashboard_setup', __NAMESPACE__ . '\add_widget' );
  */
 function wds_documentation_widget() {
 	$img_url = plugin_dir_url( __FILE__ ) . '/wds_banner.png';
-?>
+	?>
 
-<?php display_documentation(); ?>
+	<?php display_documentation(); ?>
 
-<?php
+	<?php
 }
 
 /**
@@ -175,7 +177,7 @@ function display_documentation() {
 		'<p>If you need assistance, would like to add more functionality to your site, or require a new redesign, please contact WebDevStudios.</p>
 		<p><a href="https://webdevstudios.com/contact/" class="button button-primary" style="background-color: #f3713c; border-color: #f3713c">Contact WebDevStudios Now</a></p>'
 	);
-?>
+	?>
 	<?php if ( $video_url ) : ?>
 		<p>
 			<?php esc_html_e( 'Watch a video tutorial of how your website works:', 'wds-site-documentation' ); ?><br>
@@ -205,7 +207,7 @@ function display_documentation() {
 	<?php endif; ?>
 
 	<?php echo wp_kses_post( $footer ); ?>
-<?php
+	<?php
 }
 
 /**

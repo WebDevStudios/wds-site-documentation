@@ -1,9 +1,11 @@
 {
-    "name": "webdevstudios/wds-site-documentation",
-    "description": "A plugin to host site documentation in an easily accessible place in the WordPress dashboard.",
-    "license": "GPL-2.0-or-later",
-    "type": "wordpress-plugin",
-    "require-dev": {
-        "webdevstudios/php-coding-standards": "~1.3.0"
-    }
+  "name": "webdevstudios/wds-site-documentation",
+  "description": "A plugin to host site documentation in an easily accessible place in the WordPress dashboard.",
+  "license": "GPL-2.0-or-later",
+  "type": "wordpress-plugin",
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+    "phpcompatibility/phpcompatibility-wp": "^2.1.1",
+    "wp-coding-standards/wpcs": "~2.3.0"
+  }
 }

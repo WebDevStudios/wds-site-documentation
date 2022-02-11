@@ -167,99 +167,14 @@ function display_documentation() {
  */
 function media_selector_print_scripts() {
 
-	$video_id = get_option( 'wds_documentation_video_id', 0 );
-	$pdf_id   = get_option( 'wds_documentation_pdf_id', 0 );
+	$video_id = esc_js( get_option( 'wds_documentation_video_id', 0 ) );
+	$pdf_id   = esc_js( get_option( 'wds_documentation_pdf_id', 0 ) );
 
-	?>
-	<script type='text/javascript'>
-
-		jQuery( document ).ready( function( $ ) {
-
-			// Uploading files
-			var file_frame;
-			var wp_media_post_id = wp.media.model.settings.post.id; // Store the old id
-			var set_to_video_id = <?php echo esc_js( $video_id ); ?>; // Set this
-			var set_to_pdf_id = <?php echo esc_js( $pdf_id ); ?>; // Set this
-
-			jQuery('#upload_video_button').on('click', function( event ){
-
-				event.preventDefault();
-
-				// Set the wp.media post id so the uploader grabs the ID we want when initialised
-				wp.media.model.settings.post.id = set_to_video_id;
-
-				// Create the media frame.
-				file_frame = wp.media.frames.file_frame = wp.media({
-					title: 'Select a video to upload',
-					button: {
-						text: 'Use this video',
-					},
-					library: {
-						type: 'video',
-					},
-					multiple: false	// Set to true to allow multiple files to be selected
-				});
-
-				// When an image is selected, run a callback.
-				file_frame.on( 'select', function() {
-					// We set multiple to false so only get one image from the uploader
-					attachment = file_frame.state().get('selection').first().toJSON();
-
-					// Do something with attachment.id and/or attachment.url here
-					$( '#wds-video-name' ).text(attachment.title);
-					$( '#wds_documentation_video_id' ).val( attachment.id );
-
-					// Restore the main post ID
-					wp.media.model.settings.post.id = wp_media_post_id;
-				});
-
-				// Finally, open the modal
-				file_frame.open();
-			});
-
-			jQuery('#upload_pdf_button').on('click', function( event ){
-
-				event.preventDefault();
-
-				// Set the wp.media post id so the uploader grabs the ID we want when initialised
-				wp.media.model.settings.post.id = set_to_pdf_id;
-
-				// Create the media frame.
-				file_frame = wp.media.frames.file_frame = wp.media({
-					title: 'Select a PDF to upload',
-					button: {
-						text: 'Use this PDF',
-					},
-					library: {
-						type: 'application/pdf',
-					},
-					multiple: false	// Set to true to allow multiple files to be selected
-				});
-
-				// When an image is selected, run a callback.
-				file_frame.on( 'select', function() {
-					// We set multiple to false so only get one image from the uploader
-					attachment = file_frame.state().get('selection').first().toJSON();
-
-					// Do something with attachment.id and/or attachment.url here
-					$( '#wds-pdf-name' ).text(attachment.title);
-					$( '#wds_documentation_pdf_id' ).val( attachment.id );
-
-					// Restore the main post ID
-					wp.media.model.settings.post.id = wp_media_post_id;
-				});
-
-					// Finally, open the modal
-					file_frame.open();
-			});
-
-			// Restore the main ID when the add media button is pressed
-			jQuery( 'a.add_media' ).on( 'click', function() {
-				wp.media.model.settings.post.id = wp_media_post_id;
-			});
-		});
-
-	</script>
-	<?php
-
+	wp_enqueue_script( 'wds_documentation_media', plugin_dir_url( __FILE__ ) . '/js/media_selector.js', [ 'jquery' ], '1', true );
+	wp_add_inline_script(
+		'wds_documentation_media',
+		"var set_to_video_id = $video_id;
+		var set_to_pdf_id = $pdf_id;",
+		'after'
+	);
 }

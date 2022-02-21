@@ -178,3 +178,5 @@ function media_selector_print_scripts() {
 		'after'
 	);
 }
+
+require_once 'settings.php';

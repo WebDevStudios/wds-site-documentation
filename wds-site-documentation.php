@@ -51,22 +51,10 @@ function add_wds_documentation_dashboard_page() {
  * @since  1.0.0
  */
 function wds_documentation_dashboard() {
-	$img_url        = apply_filters(
+	$img_url = apply_filters(
 		'wds_documentation_banner_url',
 		plugin_dir_url( __FILE__ ) . '/wds_banner.png'
 	);
-	$enable_changes = apply_filters( 'wds_documentation_enable_changes', true );
-
-	if ( $enable_changes ) {
-		// Save attachment ID.
-		if ( isset( $_POST['submit_selectors'] ) ) {
-			check_admin_referer( 'wds_documentation_update', 'wds_documentation_update_nonce' );
-			update_option( 'wds_documentation_video_id', absint( $_POST['wds_documentation_video_id'] ?? 0 ) );
-			update_option( 'wds_documentation_pdf_id', absint( $_POST['wds_documentation_pdf_id'] ?? 0 ) );
-		}
-
-		wp_enqueue_media();
-	}
 	?>
 	<h1><?php esc_html_e( 'Everything You Need to Know About Your WordPress Website', 'wds-site-documentation' ); ?></h1>
 

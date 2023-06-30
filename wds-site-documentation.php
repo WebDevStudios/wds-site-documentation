@@ -27,6 +27,20 @@ namespace WebDevStudios\Documentation;
 use WP_Query;
 
 /**
+ * Include all settings page files.
+ *
+ * @author Ashley Stanley <ashley.stanley@webdevstudios.com>
+ * @since  1.1.1
+ */
+$dashboard_path = plugin_dir_path( __FILE__ ) . 'settings/';
+
+$php_dash_files = glob( $dashboard_path . '*.php' );
+
+foreach ( $php_dash_files as $php_dash_file ) {
+    require_once $php_dash_file;
+}
+
+/**
  * Include all dashboard files.
  *
  * @author Ashley Stanley <ashley.stanley@webdevstudios.com>
@@ -75,3 +89,10 @@ function add_toolbar_items( $admin_bar ) {
 	);
 }
 add_action( 'admin_bar_menu', __NAMESPACE__ . '\add_toolbar_items', 100 );
+
+/**
+ * Create a Documentation navigation section.
+ *
+ * @author Ashley Stanley <ashley.stanley@webdevstudios.com>
+ * @since  1.1.1
+ */

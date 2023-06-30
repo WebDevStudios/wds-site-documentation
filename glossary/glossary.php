@@ -25,3 +25,10 @@
 namespace WebDevStudios\Documentation;
 
 use WP_Query;
+
+/**
+ * Add the glossary to the navigation.
+ *
+ * @author Ashley Stanley <ashley.stanley@webdevstudios.com>
+ * @since  1.1.1
+ */

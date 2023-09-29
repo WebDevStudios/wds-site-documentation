@@ -1,25 +1,6 @@
 <?php
 /**
- * WDS Site Documentation.
- *
- * @package           WebDevStudios\Documentation
- * @author            WebDevStudios
- * @copyright         2021 WebDevStudios
- * @license           GPL-2.0-or-later
- * @since             1.1.1
- *
- * @wordpress-plugin
- * Plugin Name:       WDS Site Documentation
- * Plugin URI:        https://github.com/webdevstudios/wds-site-documentation
- * Description:       A plugin to host site documentation in an easily accessible place in the WordPress dashboard.
- * Version:           1.1.1
- * Requires at least: 5.2
- * Requires PHP:      7.2
- * Author:            WebDevStudios
- * Author URI:        https://webdevstudios.com
- * Text Domain:       wds-site-documentation
- * License:           GPL v2 or later
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * Settings.
  */
 
 namespace WebDevStudios\Documentation;
@@ -32,17 +13,27 @@ use WP_Query;
  * @author Evan Hildreth <evan.hildreth@webdevstudios.com>
  * @since  1.0.0
  */
-function add_wds_documentation_dashboard_page() {
-	add_submenu_page(
-		'options-general.php',
-		'Site Documentation',
-		'Documentation',
+function add_wds_documentation_settings_page() {
+    add_menu_page(
+		__( 'Theme Help', 'textdomain' ),
+		'Theme Help',
 		'manage_options',
-		'wds_documentation',
+        'wds_documentation',
 		__NAMESPACE__ . '\wds_documentation_dashboard',
-		100
+		'',
+		6
+	);
+	## Add two submenu pages. One called Glossary and one called Settings
+	add_submenu_page(
+		'wds_documentation',
+		__( 'Glossary', 'textdomain' ),
+		__( 'Glossary', 'textdomain' ),
+		'manage_options',
+		'wds_documentation_glossary',
+		__NAMESPACE__ . '\wds_documentation_glossary'
 	);
 }
+add_action( 'admin_menu', __NAMESPACE__ . '\add_wds_documentation_settings_page' );
 
 /**
  * Output the dashboard page for documentation
@@ -95,8 +86,6 @@ function wds_documentation_dashboard() {
 
 	<?php
 }
-
-add_action( 'admin_menu', __NAMESPACE__ . '\add_wds_documentation_dashboard_page' );
 
 /**
  * Output JavaScript needed to display the media selector boxes.

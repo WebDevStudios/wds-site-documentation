@@ -1,0 +1,33 @@
+.wds-site-glossary-page {
+    background-color: #fff;
+    max-width: 85%;
+    padding: 5%;
+    margin: 2rem auto;
+}
+
+.wds-site-glossary-page .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wds-site-glossary-page .alphabet-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.wds-site-glossary-page h1 {
+    font-size: 3rem;
+}
+
+.wds-site-glossary-page .term-link-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+
+.wds-site-glossary-page .terms-content h1 {
+    font-size: 2rem;
+}

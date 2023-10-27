@@ -1,4 +1,5 @@
 # Admin (Dashboard)
+
 > Backend interface for managing and controlling a WordPress website.
 
 ## Definition

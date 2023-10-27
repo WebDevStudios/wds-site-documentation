@@ -1,4 +1,5 @@
 # Accessibility
+
 > Designing for equal digital access for all users.
 
 ## Definition

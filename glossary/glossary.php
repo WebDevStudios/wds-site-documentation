@@ -56,7 +56,7 @@ function wds_documentation_glossary() {
 					$formatted_term_name = ucwords( str_replace( '-', ' ', $term_name ) );
 
 					// Output a hidden div with the parsed HTML content
-					echo '<a class="term-link" data-term-name="' . esc_attr( $term_name ) . '">' . esc_html( $formatted_term_name ) . '</a><br>';
+					echo '<a class="term-link" data-term-name="' . esc_attr( $term_name ) . '">' . esc_html( $formatted_term_name ) . '</a>';
 				}
 				echo '</div>';
 				echo '<div class="terms-content">';

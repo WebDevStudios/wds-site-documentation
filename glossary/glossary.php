@@ -12,7 +12,8 @@ function wds_documentation_glossary() {
 	?>
 	<div class="wds-site-glossary-page">
 		<div class="header">
-			<h1><?php esc_html_e( 'Glossary', 'wds-site-documentation' ); ?></h1>
+			<h1><?php esc_html_e( 'Your Web Glossary', 'wds-site-documentation' ); ?></h1>
+            <p><?php esc_html_e( "Explore our client glossary, thoughtfully designed to empower you with the knowledge and terminology that will make communicating with your development team a breeze. We're here to make your experience enjoyable and productive as you work together to achieve your website goals.", "wds-site-documentation" ); ?></p>
 			<a class="back-to-glossary-link button" href="#">Show All Terms</a>
 		</div>
 

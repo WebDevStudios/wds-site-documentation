@@ -118,6 +118,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		event.preventDefault();
 		showTermLinkContainer();
 		hideAllTermContainers();
+		showAllTermLinks();
 	});
 
 	function filterTermsByLetter(letter) {
@@ -137,6 +138,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	function showTermLinkContainer() {
 		termLinkContainer.style.display = 'grid';
+	}
+
+	function showAllTermLinks() {
+		termLinks.forEach(function(termLink) {
+			termLink.style.display = 'inline-block';
+		});
 	}
 
 	function hideAllTermContainers() {

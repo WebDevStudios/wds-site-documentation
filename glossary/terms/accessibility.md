@@ -8,11 +8,11 @@ Accessibility refers to the design and development of digital content, websites,
 
 ## Real Life Example
 
-A website with accessibility features might include alternative text for images, keyboard navigation support, and subtitles for videos to accommodate users with diverse needs.
+A website with accessibility features might include alternative text for images, keyboard navigation support, and video subtitles to accommodate users with diverse needs.
 
-## Why It’s Important
+## Why It's Important
 
-1. Inclusivity: Accessibility ensures that digital content can be used by everyone, regardless of their disabilities or impairments.
+1. Inclusivity: Accessibility ensures that everyone can use digital content, regardless of their disabilities or impairments.
 2. Legal and Ethical Compliance: Many countries have accessibility laws that mandate equal access to digital content, emphasizing its ethical importance.
 3. Enhanced User Experience: Accessibility improvements often benefit all users by making content more readable, navigable, and usable.
 4. SEO Benefits: Search engines value accessible websites, potentially improving search engine rankings and visibility.

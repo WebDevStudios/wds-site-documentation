@@ -76,3 +76,12 @@
 .wds-site-glossary-page .terms-content h1 {
     font-size: 2rem;
 }
+
+.wds-site-glossary-page .terms-content ul {
+    list-style-type: circle;
+    padding-inline-start: 40px;
+}
+
+.wds-site-glossary-page .terms-content ol {
+    padding-inline-start: 40px;
+}

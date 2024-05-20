@@ -14,10 +14,10 @@ A back-end developer sets up the database, manages user authentication, and hand
 
 1. Data Management: Back-end development includes designing databases and implementing data storage solutions for efficient data handling.
 2. Security: Back-end developers implement security measures to protect user data and prevent unauthorized access.
-3. Functionality: The back-end is responsible for executing the core logic and processing requests, ensuring smooth application functionality.
+3. Functionality: The back end executes the core logic and processing requests, ensuring smooth application functionality.
 4. Scalability: Properly architected back-end systems can handle increased user traffic and support future growth.
-5. Integration: Back-end development often involves integrating with external services and APIs to enhance application capabilities.
+5. Integration: Back-end development often involves integrating external services and APIs to enhance application capabilities.
 
 ## Commonly Confused For
 
-Back-end development is sometimes confused with front-end development. While back-end focuses on server-side processes, front-end development deals with user interface and interactions.
+Back-end development is sometimes confused with front-end development. While the back-end focuses on server-side processes, front-end development deals with user interface and interactions.

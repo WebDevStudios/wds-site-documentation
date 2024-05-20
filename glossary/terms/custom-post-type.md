@@ -4,7 +4,7 @@
 
 ## Definition
 
-A Custom Post Type refers to a content type that admins can create and manage, beyond the default posts and pages. Custom Post Types allow WordPress websites to organize and display specific content in a structured manner. They are particularly useful for diverse content like portfolios, testimonials, products, and more.
+A Custom Post Type refers to a content type admins can create and manage beyond the default posts and pages. Custom Post Types allow WordPress websites to organize and display specific content in a structured manner. They are handy for diverse content like portfolios, testimonials, products, etc.
 
 ## Real Life Example
 

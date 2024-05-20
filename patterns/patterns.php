@@ -1,6 +1,6 @@
 <?php
 /**
- * Glossary
+ * Patterns
  */
 
 namespace WebDevStudios\Documentation;
@@ -8,13 +8,13 @@ namespace WebDevStudios\Documentation;
 use WP_Query;
 
 // Create a glossary page that shows a list of terms and their definitions
-function wds_documentation_glossary() {
+function wds_documentation_patterns() {
 	?>
 	<div class="wds-site-glossary-page">
 		<div class="header">
-			<h1><?php esc_html_e( 'Your Web Glossary', 'wds-site-documentation' ); ?></h1>
-            <p><?php esc_html_e( "Explore our client glossary, thoughtfully designed to empower you with the knowledge and terminology that will make communicating with your development team a breeze. We're here to make your experience enjoyable and productive as you work together to achieve your website goals.", "wds-site-documentation" ); ?></p>
-			<a class="back-to-glossary-link button" href="#">Show All Terms</a>
+			<h1><?php esc_html_e( 'Your Custom Block Patterns', 'wds-site-documentation' ); ?></h1>
+            <p><?php esc_html_e( "Block patterns are pre-designed layouts that can easily be added to your WordPress site to create beautiful, professional-looking pages and posts. This guide will walk you through inserting block patterns onto your site and customizing them with your content.", "wds-site-documentation" ); ?></p>
+			<a class="back-to-glossary-link button" href="#">Show All Patterns</a>
 		</div>
 
 		<!-- Add anchor links for each letter of the alphabet -->

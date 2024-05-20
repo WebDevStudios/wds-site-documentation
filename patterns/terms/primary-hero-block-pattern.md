@@ -1,4 +1,4 @@
-# <a href="https://webdevstudios.atlassian.net/wiki/spaces/JS/pages/3406725261/Primary+Hero+Block+Pattern" target="_blank">Primary Hero Block Pattern</a>
+# Primary Hero Block Pattern
 
 Description
 -----------

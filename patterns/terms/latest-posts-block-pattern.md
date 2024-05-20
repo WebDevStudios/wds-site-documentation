@@ -1,4 +1,4 @@
-# <a href="https://webdevstudios.atlassian.net/wiki/spaces/JS/pages/3408494593/Latest+Posts+Block+Pattern" target="_blank">Latest Posts Block Pattern</a>
+# Latest Posts Block Pattern
 
 Description
 -----------

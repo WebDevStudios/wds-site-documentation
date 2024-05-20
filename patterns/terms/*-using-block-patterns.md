@@ -1,4 +1,4 @@
-# <a href="https://webdevstudios.atlassian.net/wiki/spaces/JS/pages/3403842235/Your+Custom+Block+Patterns" target="_blank">Using Block Patterns</a>
+# Using Block Patterns
 
 Here's an overview of how to use your Block Patterns:
 

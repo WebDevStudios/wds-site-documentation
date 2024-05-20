@@ -1,4 +1,4 @@
-# <a href="https://webdevstudios.atlassian.net/wiki/spaces/JS/pages/3411214414/50+50+Pattern+Two+Block+Pattern" target="_blank">50/50 Pattern: Two Block Pattern</a>
+# 50/50 Pattern: Two Block Pattern
 
 Description
 -----------

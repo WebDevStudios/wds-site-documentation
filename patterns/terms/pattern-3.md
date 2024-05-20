@@ -1,4 +1,4 @@
-# <a href="https://webdevstudios.atlassian.net/wiki/spaces/JS/pages/3414753287/50+50+Pattern+Three+Block+Pattern" target="_blank">50/50 Pattern: Three Block Pattern</a>
+# 50/50 Pattern: Three Block Pattern
 
 Description
 -----------

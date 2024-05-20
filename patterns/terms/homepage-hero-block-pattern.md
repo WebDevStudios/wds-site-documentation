@@ -1,4 +1,4 @@
-# <a href="https://webdevstudios.atlassian.net/wiki/spaces/JS/pages/3406135371/Homepage+Hero+Block+Pattern" targer="_blank">Homepage Hero Block Pattern</a>
+# Homepage Hero Block Pattern
 
 Description
 -----------

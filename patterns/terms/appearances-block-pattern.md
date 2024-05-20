@@ -1,4 +1,4 @@
-# <a href="https://webdevstudios.atlassian.net/wiki/spaces/JS/pages/3408822304/Appearances+Block+Pattern" target="_blank">Appearances Block Pattern</a>
+# Appearances Block Pattern
 
 Description
 -----------

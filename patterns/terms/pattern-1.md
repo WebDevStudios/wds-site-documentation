@@ -1,7 +1,5 @@
 # <a href="https://webdevstudios.atlassian.net/wiki/spaces/JS/pages/3410886691/50+50+Pattern+One+Block+Pattern" target="_blank">50/50 Pattern: One Block Pattern</a>
 
-<video src="https://api.media.atlassian.com/file/159df5be-20a4-4860-aa09-795dbc7424f5/artifact/video_1280.mp4/binary?client=47041bf2-0393-425f-b0fb-a51245dd80bb&collection=contentId-3410886691&max-age=2592000&token=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI0NzA0MWJmMi0wMzkzLTQyNWYtYjBmYi1hNTEyNDVkZDgwYmIiLCJhY2Nlc3MiOnsidXJuOmZpbGVzdG9yZTpjb2xsZWN0aW9uOmNvbnRlbnRJZC0zNDEwODg2NjkxIjpbInJlYWQiXX0sImV4cCI6MTcxNTYyNzQ4MCwibmJmIjoxNzE1NjI0NjAwfQ.e3dlQDl42Td_9E_f7oxtB9ud689AyE8L8z18CblpH7g" width="auto" height="auto" controls></video>
-
 Description
 -----------
 

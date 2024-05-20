@@ -1,7 +1,5 @@
 # <a href="https://webdevstudios.atlassian.net/wiki/spaces/JS/pages/3406725261/Primary+Hero+Block+Pattern" target="_blank">Primary Hero Block Pattern</a>
 
-<video src="https://api.media.atlassian.com/file/337c71da-b1e8-4e51-a2f0-65361d4999cb/artifact/video_1280.mp4/binary?client=47041bf2-0393-425f-b0fb-a51245dd80bb&collection=contentId-3406725261&max-age=2592000&token=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI0NzA0MWJmMi0wMzkzLTQyNWYtYjBmYi1hNTEyNDVkZDgwYmIiLCJhY2Nlc3MiOnsidXJuOmZpbGVzdG9yZTpjb2xsZWN0aW9uOmNvbnRlbnRJZC0zNDA2NzI1MjYxIjpbInJlYWQiXX0sImV4cCI6MTcxNTM2OTAyMiwibmJmIjoxNzE1MzY2MTQyfQ.pat5ozM0RZXOa6Kkk27NYOUrCAQjn3B30BWVuFzVXq0" width="auto" height="auto" controls></video>
-
 Description
 -----------
 

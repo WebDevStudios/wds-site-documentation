@@ -1,7 +1,5 @@
 # <a href="https://webdevstudios.atlassian.net/wiki/spaces/JS/pages/3414753287/50+50+Pattern+Three+Block+Pattern" target="_blank">50/50 Pattern: Three Block Pattern</a>
 
-<video src="https://api.media.atlassian.com/file/92a54324-662d-46db-a16b-83acc98be60d/artifact/video_1280.mp4/binary?client=47041bf2-0393-425f-b0fb-a51245dd80bb&collection=contentId-3414753287&max-age=2592000&token=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI0NzA0MWJmMi0wMzkzLTQyNWYtYjBmYi1hNTEyNDVkZDgwYmIiLCJhY2Nlc3MiOnsidXJuOmZpbGVzdG9yZTpjb2xsZWN0aW9uOmNvbnRlbnRJZC0zNDE0NzUzMjg3IjpbInJlYWQiXX0sImV4cCI6MTcxNTYyNzc2NiwibmJmIjoxNzE1NjI0ODg2fQ.Noc0e9-byAf7eYffDTneR0IAs8xxobHMYPwTe_0Tu1U" width="auto" height="auto" controls></video>
-
 Description
 -----------
 

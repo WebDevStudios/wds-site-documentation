@@ -1,7 +1,5 @@
 # <a href="https://webdevstudios.atlassian.net/wiki/spaces/JS/pages/3415375877/50+50+Pattern+Four+Block+Pattern" target="_blank">50/50 Pattern: Four Block Pattern</a>
 
-<video src="https://api.media.atlassian.com/file/87560afb-7c1c-4187-96bd-1ebb3ef5e7d1/artifact/video_1280.mp4/binary?client=47041bf2-0393-425f-b0fb-a51245dd80bb&collection=contentId-3415375877&max-age=2592000&token=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI0NzA0MWJmMi0wMzkzLTQyNWYtYjBmYi1hNTEyNDVkZDgwYmIiLCJhY2Nlc3MiOnsidXJuOmZpbGVzdG9yZTpjb2xsZWN0aW9uOmNvbnRlbnRJZC0zNDE1Mzc1ODc3IjpbInJlYWQiXX0sImV4cCI6MTcxNTYyODE0NSwibmJmIjoxNzE1NjI1MjY1fQ.JLly1-P-DuhqcyWg3-MM2eD816PnqBdcwwi25-EvuDY" width="auto" height="auto" controls></video>
-
 Description
 -----------
 

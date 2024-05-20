@@ -27,8 +27,6 @@ To browse and add block patterns to your content, follow these steps:
 
     -   Click on any pattern to add it to your page at the cursor location.
 
-<video src="https://api.media.atlassian.com/file/b73c13fa-3417-4c4d-a086-9dfc1ae71487/artifact/video_1280.mp4/binary?client=47041bf2-0393-425f-b0fb-a51245dd80bb&collection=contentId-3403842235&max-age=2592000&token=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI0NzA0MWJmMi0wMzkzLTQyNWYtYjBmYi1hNTEyNDVkZDgwYmIiLCJhY2Nlc3MiOnsidXJuOmZpbGVzdG9yZTpjb2xsZWN0aW9uOmNvbnRlbnRJZC0zNDAzODQyMjM1IjpbInJlYWQiXX0sImV4cCI6MTcxNTM2ODczMiwibmJmIjoxNzE1MzY1ODUyfQ.i0XbfyOqB3EhbtPQ0Vk21BiPPtbySGhnXPYRXlh5B4Y" width="auto" height="auto" controls></video>
-
 Using Block Patterns
 --------------------
 

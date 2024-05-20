@@ -1,7 +1,5 @@
 # <a href="https://webdevstudios.atlassian.net/wiki/spaces/JS/pages/3411214414/50+50+Pattern+Two+Block+Pattern" target="_blank">50/50 Pattern: Two Block Pattern</a>
 
-<video src="https://api.media.atlassian.com/file/e340efdf-ca39-4509-a2a1-43a9b6a13f22/artifact/video_1280.mp4/binary?client=47041bf2-0393-425f-b0fb-a51245dd80bb&collection=contentId-3411214414&max-age=2592000&token=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI0NzA0MWJmMi0wMzkzLTQyNWYtYjBmYi1hNTEyNDVkZDgwYmIiLCJhY2Nlc3MiOnsidXJuOmZpbGVzdG9yZTpjb2xsZWN0aW9uOmNvbnRlbnRJZC0zNDExMjE0NDE0IjpbInJlYWQiXX0sImV4cCI6MTcxNTYyNzY5MiwibmJmIjoxNzE1NjI0ODEyfQ.tkPmZ-BtHkPdC9d1p-1KKJXH_4IbxbtNmXD7AYDKwf8" width="auto" height="auto" controls></video>
-
 Description
 -----------
 

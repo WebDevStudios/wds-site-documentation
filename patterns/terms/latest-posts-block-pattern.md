@@ -1,7 +1,5 @@
 # <a href="https://webdevstudios.atlassian.net/wiki/spaces/JS/pages/3408494593/Latest+Posts+Block+Pattern" target="_blank">Latest Posts Block Pattern</a>
 
-<video src="https://api.media.atlassian.com/file/6be54261-6a27-4170-83da-ee1ec4714d3a/artifact/video_1280.mp4/binary?client=47041bf2-0393-425f-b0fb-a51245dd80bb&collection=contentId-3408494593&max-age=2592000&token=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI0NzA0MWJmMi0wMzkzLTQyNWYtYjBmYi1hNTEyNDVkZDgwYmIiLCJhY2Nlc3MiOnsidXJuOmZpbGVzdG9yZTpjb2xsZWN0aW9uOmNvbnRlbnRJZC0zNDA4NDk0NTkzIjpbInJlYWQiXX0sImV4cCI6MTcxNTM3MDMwNiwibmJmIjoxNzE1MzY3NDI2fQ.zb52hkCTvyhEtxfj5DZaBbYb2Ey6BCAtpAycpwa8oME" width="auto" height="auto" controls></video>
-
 Description
 -----------
 

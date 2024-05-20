@@ -1,7 +1,5 @@
 # <a href="https://webdevstudios.atlassian.net/wiki/spaces/JS/pages/3406135371/Homepage+Hero+Block+Pattern" targer="_blank">Homepage Hero Block Pattern</a>
 
-<video src="https://api.media.atlassian.com/file/ece9a585-494b-4687-b32d-afb86646bc35/artifact/video_1280.mp4/binary?client=47041bf2-0393-425f-b0fb-a51245dd80bb&collection=contentId-3406135371&max-age=2592000&token=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI0NzA0MWJmMi0wMzkzLTQyNWYtYjBmYi1hNTEyNDVkZDgwYmIiLCJhY2Nlc3MiOnsidXJuOmZpbGVzdG9yZTpjb2xsZWN0aW9uOmNvbnRlbnRJZC0zNDA2MTM1MzcxIjpbInJlYWQiXX0sImV4cCI6MTcxNTM2ODkxOCwibmJmIjoxNzE1MzY2MDM4fQ.k1a0lhVJDREQY2a6nJ-TWDwj1qFxU4xpRFmpXSmrjKM" width="auto" height="auto" controls></video>
-
 Description
 -----------
 

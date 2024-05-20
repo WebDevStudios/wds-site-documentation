@@ -1,0 +1,78 @@
+.wds-site-glossary-page {
+    background-color: #fff;
+    max-width: 88.5%;
+    padding: 5%;
+    margin: 2rem 0;
+}
+
+.wds-site-glossary-page .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 50%;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+.wds-site-glossary-page .back-to-glossary-link {
+    color: #000;
+    background: rgba(5, 6, 15, .05);
+    border: none;
+    font-weight: 700;
+}
+
+.wds-site-glossary-page .back-to-glossary-link:hover {
+    color: #000;
+    background: rgba(5, 6, 15, .1);
+}
+
+.wds-site-glossary-page .alphabet-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.wds-site-glossary-page .alphabet-links a {
+    color: #000;
+    text-decoration: none;
+    border-radius: 1000px;
+    padding: 0 12px;
+    line-height: 41px;
+    width: 16px;
+    text-align: center;
+}
+
+.wds-site-glossary-page .alphabet-links a:hover {
+    background: rgba(5, 6, 15, .05);
+}
+
+.wds-site-glossary-page .alphabet-links a:focus,
+.wds-site-glossary-page .back-to-glossary-link:focus {
+    color: #000;
+    box-shadow: 0 0 0 1px rgb(5, 6, 15), 0 0 2px 1px rgba(5, 6, 15, .05);
+}
+
+.wds-site-glossary-page h1 {
+    font-size: 3rem;
+}
+
+.wds-site-glossary-page .term-link-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+
+.wds-site-glossary-page .term-link {
+    color: #000;
+}
+
+.wds-site-glossary-page .term-link:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.wds-site-glossary-page .terms-content h1 {
+    font-size: 2rem;
+}

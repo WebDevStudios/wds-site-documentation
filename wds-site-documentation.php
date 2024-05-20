@@ -27,6 +27,20 @@ namespace WebDevStudios\Documentation;
 use WP_Query;
 
 /**
+ * Include all settings files.
+ *
+ * @author Ashley Stanley <ashley.stanley@webdevstudios.com>
+ * @since  1.1.1
+ */
+$dashboard_path = plugin_dir_path( __FILE__ ) . 'settings/';
+
+$php_dash_files = glob( $dashboard_path . '*.php' );
+
+foreach ( $php_dash_files as $php_dash_file ) {
+    require_once $php_dash_file;
+}
+
+/**
  * Include all dashboard files.
  *
  * @author Ashley Stanley <ashley.stanley@webdevstudios.com>
@@ -75,3 +89,13 @@ function add_toolbar_items( $admin_bar ) {
 	);
 }
 add_action( 'admin_bar_menu', __NAMESPACE__ . '\add_toolbar_items', 100 );
+
+/**
+ * Enqueues the plugin styles.
+ *
+ * @throws Exception If the plugin styles cannot be enqueued.
+ */
+function enqueue_plugin_styles() {
+    wp_enqueue_style('plugin-style', plugin_dir_url(__FILE__) . 'style.css');
+}
+add_action('admin_enqueue_scripts', __NAMESPACE__ . '\enqueue_plugin_styles');

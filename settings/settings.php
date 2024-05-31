@@ -23,7 +23,6 @@ function add_wds_documentation_settings_page() {
 		'',
 		6
 	);
-	## Add two submenu pages. One called Glossary and one called Settings
 	add_submenu_page(
 		'wds_documentation',
 		__( 'Glossary', 'textdomain' ),
@@ -32,6 +31,19 @@ function add_wds_documentation_settings_page() {
 		'wds_documentation_glossary',
 		__NAMESPACE__ . '\wds_documentation_glossary'
 	);
+
+	$patterns_path = get_stylesheet_directory() . '/documentation/patterns/';
+
+	if ( file_exists( $patterns_path ) && is_dir( $patterns_path ) ) {
+        add_submenu_page(
+            'wds_documentation',
+            __( 'Patterns', 'textdomain' ),
+            __( 'Patterns', 'textdomain' ),
+            'manage_options',
+            'wds_documentation_patterns',
+            __NAMESPACE__ . '\wds_documentation_patterns'
+        );
+    }
 }
 add_action( 'admin_menu', __NAMESPACE__ . '\add_wds_documentation_settings_page' );
 

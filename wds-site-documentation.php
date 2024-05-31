@@ -69,6 +69,20 @@ foreach ( $php_glossary_files as $php_glossary_file ) {
 }
 
 /**
+ * Include all patterns files.
+ *
+ * @author Ashley Stanley <ashley.stanley@webdevstudios.com>
+ * @since  1.1.1
+ */
+$patterns_path = get_stylesheet_directory() . '/documentation/patterns/';
+
+$php_patterns_files = glob( $patterns_path . '*.php' );
+
+foreach ( $php_patterns_files as $php_patterns_file ) {
+    require_once $php_patterns_file;
+}
+
+/**
  * Add a Site Documentation item to the Admin Bar
  *
  * @author Evan Hildreth <evan.hildreth@webdevstudios.com>
@@ -97,5 +111,6 @@ add_action( 'admin_bar_menu', __NAMESPACE__ . '\add_toolbar_items', 100 );
  */
 function enqueue_plugin_styles() {
     wp_enqueue_style('plugin-style', plugin_dir_url(__FILE__) . 'style.css');
+	wp_enqueue_script('plugin-script', plugin_dir_url(__FILE__) . 'script.js', array('jquery'), '1.0', true);
 }
 add_action('admin_enqueue_scripts', __NAMESPACE__ . '\enqueue_plugin_styles');

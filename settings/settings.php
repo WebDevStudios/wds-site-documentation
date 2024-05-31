@@ -31,14 +31,19 @@ function add_wds_documentation_settings_page() {
 		'wds_documentation_glossary',
 		__NAMESPACE__ . '\wds_documentation_glossary'
 	);
-	add_submenu_page(
-		'wds_documentation',
-		__( 'Patterns', 'textdomain' ),
-		__( 'Patterns', 'textdomain' ),
-		'manage_options',
-		'wds_documentation_patterns',
-		__NAMESPACE__ . '\wds_documentation_patterns'
-	);
+
+	$patterns_path = get_stylesheet_directory() . '/documentation/patterns/';
+
+	if ( file_exists( $patterns_path ) && is_dir( $patterns_path ) ) {
+        add_submenu_page(
+            'wds_documentation',
+            __( 'Patterns', 'textdomain' ),
+            __( 'Patterns', 'textdomain' ),
+            'manage_options',
+            'wds_documentation_patterns',
+            __NAMESPACE__ . '\wds_documentation_patterns'
+        );
+    }
 }
 add_action( 'admin_menu', __NAMESPACE__ . '\add_wds_documentation_settings_page' );
 

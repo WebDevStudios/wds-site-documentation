@@ -74,7 +74,7 @@ foreach ( $php_glossary_files as $php_glossary_file ) {
  * @author Ashley Stanley <ashley.stanley@webdevstudios.com>
  * @since  1.1.1
  */
-$patterns_path = plugin_dir_path( __FILE__ ) . 'patterns/';
+$patterns_path = get_stylesheet_directory() . '/documentation/patterns/';
 
 $php_patterns_files = glob( $patterns_path . '*.php' );
 

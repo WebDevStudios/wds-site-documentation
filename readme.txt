@@ -3,7 +3,7 @@ Contributors: webdevstudios, oddevan
 Tags: documentation
 Requires at least: 5.6
 Tested up to: 6.5.3
-Requires PHP: 7.2
+Requires PHP: 7.4
 Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -12,8 +12,7 @@ A plugin to host site documentation in an easily accessible place in the WordPre
 
 == Description ==
 
-Host documentation for your clients right where they need it most: on the website! This plugin creates
-a page on the WordPress dashboard called "Documentation" that shows a video and links to a PDF.
+Host documentation for your clients right where they need it most: on the website! This plugin creates a page on the WordPress dashboard called "Documentation" that shows a video and links to a PDF.
 
 Brought to you by the fine folks at [WebDevStudios][wds]!
 
@@ -30,9 +29,7 @@ Brought to you by the fine folks at [WebDevStudios][wds]!
 
 = Why should I use this? =
 
-When an agency hands a site off to the client, they should also provide documentation on how to use the
-site, even if the site is mostly "vanilla WordPress." This plugin makes it easy to set up a
-documentation section in the WordPress dashboard.
+When an agency hands a site off to the client, they should also provide documentation on how to use the site, even if the site is mostly "vanilla WordPress." This plugin makes it easy to set up a documentation section in the WordPress dashboard.
 
 = Can I turn off the buttons so the documentation can't be changed accidentally? =
 
@@ -55,20 +52,40 @@ Absolutely. [Drop us a line!][wds-contact]
 
 == Changelog ==
 
+= 1.1.0 =
+* Added: Glossary tab to browse and view terms, including filtering or all on one page.
+* Added: Definitions for common WordPress and website words and phrases.
+* Added: Ability to filter in your own terms.
+
+= 1.0.2 =
+* Confirmed WordPress 6.0 compatibility
+
+= 1.0.1 =
+* Fixes formatting issues in the README
+
+= 1.0 =
+
+* Initial release
+
+== Upgrade Notice ==
 
 = 1.1.0 =
 * Added: Glossary tab to browse and view terms, including filtering or all on one page.
 * Added: Definitions for common WordPress and website words and phrases.
 * Added: Ability to filter in your own terms.
 
-= 1.0 =
+= 1.0.2 =
+* Confirmed WordPress 6.0 compatibility
 
-* Initial release
+= 1.0.1 =
+Fixes some formatting issues in the README.
+
+= 1.0 =
+Initial release
 
 == Filters for developers ==
 
-The URLs for the movie and PDF files can be modified with the `wds_documentation_video_url`
-and `wds_documentation_pdf_url` filters respectively. For example:
+The URLs for the movie and PDF files can be modified with the `wds_documentation_video_url` and `wds_documentation_pdf_url` filters respectively. For example:
 
 ```
 add_filter( 'wds_documentation_pdf_url', function( $pdf_url ) {
@@ -76,8 +93,7 @@ add_filter( 'wds_documentation_pdf_url', function( $pdf_url ) {
 }, 10, 1 );
 ```
 
-The upload buttons can be turned off with the filter `wds_documentation_enable_changes`. To
-turn off the buttons, add this code to your theme's `functions.php` file:
+The upload buttons can be turned off with the filter `wds_documentation_enable_changes`. To turn off the buttons, add this code to your theme's `functions.php` file:
 
 ```
 add_filter( 'wds_documentation_enable_changes', '__return_false', 10 );

@@ -12,7 +12,7 @@
  * Plugin Name:       WDS Site Documentation
  * Plugin URI:        https://github.com/webdevstudios/wds-site-documentation
  * Description:       A plugin to host site documentation in an easily accessible place in the WordPress dashboard.
- * Version:           1.1.1
+ * Version:           1.1.0
  * Requires at least: 5.2
  * Requires PHP:      7.2
  * Author:            WebDevStudios

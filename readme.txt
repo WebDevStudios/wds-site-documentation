@@ -4,7 +4,7 @@ Tags: documentation
 Requires at least: 5.6
 Tested up to: 6.5.3
 Requires PHP: 7.4
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,9 +14,22 @@ A plugin to host site documentation in an easily accessible place in the WordPre
 
 Host documentation for your clients right where they need it most: on the website! This plugin creates a page on the WordPress dashboard called "Documentation" that shows a video and links to a PDF.
 
-Brought to you by the fine folks at [WebDevStudios][wds]!
+Brought to you by the fine folks at [WebDevStudios](https://webdevstudios.com/)!
 
-[wds]:https://webdevstudios.com/
+=== Web Glossary ===
+
+Empower your clients with a comprehensive understanding of their WordPress website. The WDS Site Documentation plugin now includes a brand new Web Glossary featuring approximately 70 essential website terms.
+
+This user-friendly glossary equips your clients with the following:
+
+* An easy-to-comprehend definition
+* Real-world examples
+* An explanation of why the term is important
+* And what the term is commonly confused with
+
+Help your clients unravel any vagueness surrounding website management. Each glossary term boasts its own dedicated page, providing in-depth breakdowns to solidify their knowledge. No more mistaking one term for another. The new WDS Site Documentation Web Glossary clarifies any potential ambiguities.
+
+Suggest a web glossary term by emailing [support@pluginize.com](mailto:support@pluginize.com). Suggested web glossary terms must include definitions.
 
 == Installation ==
 
@@ -52,6 +65,10 @@ Absolutely. [Drop us a line!][wds-contact]
 
 == Changelog ==
 
+= 1.1.1 =
+* Fixed: Capitalization of "WordPress".
+* Updated: Screenshots
+
 = 1.1.0 =
 * Added: Glossary tab to browse and view terms, including filtering or all on one page.
 * Added: Definitions for common WordPress and website words and phrases.
@@ -68,6 +85,10 @@ Absolutely. [Drop us a line!][wds-contact]
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.1.1 =
+* Fixed: Capitalization of "WordPress".
+* Updated: Screenshots
 
 = 1.1.0 =
 * Added: Glossary tab to browse and view terms, including filtering or all on one page.

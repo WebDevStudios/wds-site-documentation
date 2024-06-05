@@ -55,6 +55,9 @@ function wds_documentation_glossary() {
 
 					// Replace hyphens with spaces and capitalize every word
 					$formatted_term_name = ucwords( str_replace( '-', ' ', $term_name ) );
+					if ( 'Wordpress' === $formatted_term_name ) {
+						$formatted_term_name = 'WordPress';
+					}
 
 					// Output a hidden div with the parsed HTML content
 					echo '<a class="term-link" data-term-name="' . esc_attr( $term_name ) . '">' . esc_html( $formatted_term_name ) . '</a>';

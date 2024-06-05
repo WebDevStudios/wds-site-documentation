@@ -60,8 +60,10 @@ Absolutely. [Drop us a line!][wds-contact]
 
 == Screenshots ==
 
-1. This shows the documentation widget on the main dashboard.
-2. This shows the documentation page including the select/upload buttons.
+1. Documentation widget on the main dashboard.
+2. Documentation page including the select/upload buttons.
+3. Default view for the Glossary
+4. View of a chosen Glossary term.
 
 == Changelog ==
 

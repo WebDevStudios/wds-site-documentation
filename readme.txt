@@ -2,9 +2,9 @@
 Contributors: webdevstudios, oddevan
 Tags: documentation
 Requires at least: 5.6
-Tested up to: 6.5.3
+Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -67,6 +67,10 @@ Absolutely. [Drop us a line!][wds-contact]
 
 == Changelog ==
 
+= 1.1.2 =
+* Fixed: nullable PHP warnings
+* Updated: confirmed compatibility with WP 7.0
+
 = 1.1.1 =
 * Fixed: Capitalization of "WordPress".
 * Updated: Screenshots
@@ -88,23 +92,9 @@ Absolutely. [Drop us a line!][wds-contact]
 
 == Upgrade Notice ==
 
-= 1.1.1 =
-* Fixed: Capitalization of "WordPress".
-* Updated: Screenshots
-
-= 1.1.0 =
-* Added: Glossary tab to browse and view terms, including filtering or all on one page.
-* Added: Definitions for common WordPress and website words and phrases.
-* Added: Ability to filter in your own terms.
-
-= 1.0.2 =
-* Confirmed WordPress 6.0 compatibility
-
-= 1.0.1 =
-Fixes some formatting issues in the README.
-
-= 1.0 =
-Initial release
+= 1.1.2 =
+* Fixed: nullable PHP warnings
+* Updated: confirmed compatibility with WP 7.0
 
 == Filters for developers ==
 
